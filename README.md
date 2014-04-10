@@ -16,6 +16,7 @@ instance.resume: resume current animation
 
 ## Sample
 
+```javascript
 var myAnimation = anim(elem).to({
   'background-color': '#E79D35',
   'border-width': '1px',
@@ -26,7 +27,7 @@ var myAnimation = anim(elem).to({
   'opacity': '0.6',
   'width': '100px'
 }, 1000, "linear");
-
+```
 
 myAnimation.pause()
 myAnimation.resume()
