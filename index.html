@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+<script
+src="./neurons/neuron/latest/neuron.js"
+id="neuron-js"
+data-path="./neurons"></script>
+
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #390;
+            margin-bottom :10px;
+            border: 1px solid #6B7B95;
+        }
+        .simple-fx{
+            position: absolute;
+            top: 0;
+            left: 200px;
+        }
+        .simple-fx li{
+            font-family: Arial;
+            text-decoration: underline;
+            list-style-type: none;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            color: #6B7B95;
+        }
+        #play{
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+        #pause{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #idList li,
+        #idList2 li {
+          display: block;
+          margin: 0;
+          padding: 4px;
+          width: 120px;
+          background-color: #333;
+          color: #888;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="element">MooTools</div>
+
+    <ul class="simple-fx">
+        <li data-property="opacity" data-value="0">Fade opacity to 0</li>
+        <li data-property="opacity" data-value="0.3">Fade opacity to 0.3</li>
+        <li data-property="opacity" data-value="1">Fade opacity to 1</li>
+        <li data-property="height" data-value="30px">Animate height to 30px</li>
+        <li data-property="height" data-value="100px">Animate height to 100px</li>
+        <li data-property="background-color" data-value="#78BA91">Animate background color</li>
+        <li data-property="border-width" data-value="10px">Animate border</li>
+        <li id="multi_to">multi to</li>
+        <li id="morph1">morph1</li>
+        <li id="morph2">morph2</li>
+    </ul>
+
+
+    <ul id="idList2">
+      <li>option 1</li>
+      <li>option 2</li>
+      <li>option 3</li>
+      <li>option 4</li>
+      <li>option 5</li>
+      <li>option 6</li>
+      <li>option 7</li>
+      <li>option 8</li>
+    </ul>
+
+    <script>
+
+    _use("animate",function(anim){
+        var elem = document.getElementById("element");
+        // tween
+        var lis = document.querySelectorAll(".simple-fx li");
+        for(var i = 0; i < lis.length ; i++){
+            lis[i].onclick = function(){
+                var anchor = this;
+                var props = {};
+                props[ anchor.getAttribute("data-property") ] = anchor.getAttribute("data-value");
+                anim(elem).to(props);
+            }
+        }
+
+        // multi to
+        multi_to.onclick = function(){
+            anim(elem).to({
+                'margin-top': '50px'
+            }).to({
+                'margin-left': '50px'
+            });
+        };
+
+        // morph
+        morph1.onclick = function(){
+            anim(elem).to({
+              'background-color': '#F9F9F9',
+              'color': '#78BA91',
+              'width': '200px'
+            });
+        };
+
+        morph2.onclick = function(){
+            anim(elem).to({
+              'background-color': '#E79D35',
+              'border-width': '1px',
+              'border-style': 'solid',
+              'border-color': '#000000',
+              'color': '#fff',
+              'height': '45px',
+              'opacity': '0.6',
+              'width': '100px'
+            });
+        };
+
+
+        // link cancel
+        var lis = document.querySelectorAll("#idList2 li");
+        for(var i = 0; i < lis.length ; i++){
+            lis[i].onmouseover = function(){
+                anim(this).to({
+                    'background-color': '#666',
+                    'color': '#FF8',
+                    'margin-left': "50px"
+                });
+            }
+            lis[i].onmouseout = function(){
+                anim(this).to({
+                    'background-color': '#333',
+                    'color': '#888',
+                    'margin-left': 0
+                });
+            }
+        }
+    });
+    </script>
+
+</body>
+</html>

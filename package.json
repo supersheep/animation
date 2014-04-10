@@ -1,0 +1,47 @@
+{
+  "name": "animate",
+  "description": "The coolest cortex module",
+  "version": "0.1.0",
+  "homepage": "https://github.com/spud/animate",
+  "author": {
+    "name": "supersheep",
+    "email": "supersheepxjy@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spud/animate.git"
+  },
+  "main":"lib/index.js",
+  "bugs": {
+    "url": "https://github.com/spud/animate/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/spud/animate/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  },
+  "keywords": [],
+  "cortex": {
+    "devDependencies": {
+      "neuron": "~4.3.0"
+    },
+    "asyncDependencies": {},
+    "scripts": {},
+    "dependencies": {
+      "events": "~1.0.0",
+      "util": "~1.0.0",
+      "json": "~1.0.0",
+      "lang": "~1.0.0"
+    }
+  }
+}
