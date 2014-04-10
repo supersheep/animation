@@ -16,6 +16,7 @@ instance.resume: resume current animation
 
 ## Sample
 
+```javascript
 var myAnimation = anim(elem).to({
   'background-color': '#E79D35',
   'border-width': '1px',
@@ -29,7 +30,7 @@ var myAnimation = anim(elem).to({
 
 myAnimation.pause()
 myAnimation.resume()
-
+```
 ## Install
 
 use `cortex` to install animation
