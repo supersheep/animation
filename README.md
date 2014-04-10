@@ -1,66 +1,37 @@
-# animate
+#Animate
 
-> The coolest cortex module
+Animate
 
-## Getting Started
-Before anything taking its part, you should install [node](http://nodejs.org) and "cortex".
+## API
 
-#### Install Node
+anim(elem).to(props,[duration],[easing]);
 
-Visit [http://nodejs.org](http://nodejs.org), download and install the proper version of nodejs.
+where duration is number by millisecond, easing is the css easing function
 
-#### Install Cortex
+default duration: 200ms
+default easing: "linear"
 
-    # maybe you should use `sudo`
-    npm install -g cortex
+instance.pause: pause current animation
+instance.resume: resume current animation
 
-## Using animate In Your Project
+## Sample
 
-First, install 'animate' directly with `cortex install` (recommended)
+var myAnimation = anim(elem).to({
+  'background-color': '#E79D35',
+  'border-width': '1px',
+  'border-style': 'solid',
+  'border-color': '#000000',
+  'color': '#fff',
+  'height': '45px',
+  'opacity': '0.6',
+  'width': '100px'
+}, 1000, "linear");
 
-	cortex install animate --save
+myAnimation.pause()
+myAnimation.resume()
 
-or, you could update your package.json manually
+## Install
 
-    dependencies: {
-        'animate': '<version-you-want>'
-    }
+use `cortex` to install animation
 
-and install dependencies
-
-	cortex install
-
-Then, use `require` method in your module
-
-    var animate = require('animate');
-
-Finally, start cortex server
-
-    cortex server
-
-Then cortex will care all the rest.
-
-
-## API Documentation
-
-### animate: constructor
-': constructor' means the `module.exports` of module 'animate' is a constructor that we should use it with the `new` keyword
-
-	new animate(options)
-
-#### options
-- options.name {String}
-
-
-
-### animate.\<method-name\>(arguments)
-Means this is a static method of `module.exports`
-
-#### arguments
-// arguments description here
-
-### .\<method-name\>(arguments)
-Mean this is a method of the instance
-
-#### arguments
-// arguments description here
+`cortex install animation`
