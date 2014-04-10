@@ -27,6 +27,7 @@ var myAnimation = anim(elem).to({
   'width': '100px'
 }, 1000, "linear");
 
+
 myAnimation.pause()
 myAnimation.resume()
 

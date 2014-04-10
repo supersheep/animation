@@ -56,7 +56,7 @@ data-path="./neurons"></script>
     </style>
 </head>
 <body>
-    <div id="element">MooTools</div>
+    <div id="element">Animate</div>
 
     <ul class="simple-fx">
         <li data-property="opacity" data-value="0">Fade opacity to 0</li>
@@ -66,7 +66,7 @@ data-path="./neurons"></script>
         <li data-property="height" data-value="100px">Animate height to 100px</li>
         <li data-property="background-color" data-value="#78BA91">Animate background color</li>
         <li data-property="border-width" data-value="10px">Animate border</li>
-        <li id="multi_to">multi to</li>
+        <li id="multi_steps">multi steps</li>
         <li id="morph1">morph1</li>
         <li id="morph2">morph2</li>
     </ul>
@@ -99,11 +99,13 @@ data-path="./neurons"></script>
         }
 
         // multi to
-        multi_to.onclick = function(){
-            anim(elem).to({
-                'margin-top': '50px'
-            }).to({
+        multi_steps.onclick = function(){
+            var me = anim(elem).to({
                 'margin-left': '50px'
+            }).on("end",function(){
+                me.to({
+                    'margin-top': '50px'
+                });
             });
         };
 
